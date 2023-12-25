@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 
-import { useTheme } from '../../constants/themes/themeContext';
-import NewsCard from '../NewsCard/NewsCard';
+import { useTheme } from '../constants/themes/themeContext';
+import NewsCard from './NewsCard';
 
 const Content = () => {
     const { theme } = useTheme();

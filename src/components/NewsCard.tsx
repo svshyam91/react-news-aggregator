@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
 
-import { useTheme } from '../../constants/themes/themeContext';
-import { TITLE_FONT_SIZE } from '../../constants/fonts/fontSize';
+import { useTheme } from '../constants/themes/themeContext';
+import { TITLE_FONT_SIZE } from '../constants/fonts/fontSize';
 
 const NewsCard = () => {
     const { theme } = useTheme();
