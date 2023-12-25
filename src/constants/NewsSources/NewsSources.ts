@@ -1,8 +1,9 @@
 [
     {
+        id: 'toi',
         name: 'Times Of India',
         iconURL:
-            'https://play-lh.googleusercontent.com/AS0Z1xkuhveb3IXzYASn52nhlFDIwcEmu1XmewVDZ39R8fZrQ13wldCy2nbjx9Aa1WCS',
+            'https://upload.wikimedia.org/wikipedia/commons/7/7a/The_times_of_india.svg',
         websiteURL: 'https://timesofindia.indiatimes.com/',
         feeds: [
             {
@@ -53,6 +54,7 @@
         ],
     },
     {
+        id: 'ht',
         name: 'Hindustan Times',
         iconURL: 'https://example.com/ht-icon.png',
         websiteURL: 'https://www.hindustantimes.com/',

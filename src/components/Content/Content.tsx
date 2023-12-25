@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 
-import classes from './Content.module.css';
 import { useTheme } from '../../constants/themes/themeContext';
 import NewsCard from '../NewsCard/NewsCard';
 
@@ -14,7 +13,7 @@ const Content = () => {
             xs
             sx={{ backgroundColor: theme.CONTENT_BACKGROUND }}
             direction='column'
-            className={classes.content}
+            p='10px'
         >
             <Grid container item>
                 <NewsCard />
