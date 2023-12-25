@@ -11,7 +11,6 @@ const NewsCard = () => {
             container
             item
             xs={12}
-            lg={6}
             direction='column'
             bgcolor={theme.CONTAINER_BACKGROUND}
             borderRadius='10px'
@@ -26,7 +25,7 @@ const NewsCard = () => {
                         style={{ borderRadius: '10px' }}
                     />
                 </Grid>
-                <Grid item xs={12} md container direction='column' >
+                <Grid item xs={12} md container direction='column'>
                     <Grid item mb='10px'>
                         <img
                             src='https://upload.wikimedia.org/wikipedia/commons/7/7a/The_times_of_india.svg'
