@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Grid, Button } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
@@ -32,7 +33,7 @@ const NewsContainer = (props: NewsContainerProps) => {
             </Grid>
             <Grid container item direction='column'>
                 {props.articles.map((article) => (
-                    <NewsItem article={article} key={article.id} />
+                    <NewsItem article={article} key={uuidv4()} />
                 ))}
             </Grid>
         </Grid>
