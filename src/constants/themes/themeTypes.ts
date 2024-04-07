@@ -1,5 +1,6 @@
 export interface Theme {
-    THEME_NAME: 'DEFAULT' | 'DARK' | 'CUSTOM';
+    ID: number;
+    NAME: string;
     HEADER_BACKGROUND: string;
     HEADER_TEXT_COLOR: string;
     CONTENT_BACKGROUND: string;

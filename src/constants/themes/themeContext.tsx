@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 import { Theme } from './themeTypes';
-import defaultTheme from './default';
+import COLORS from './colors';
 
 interface ThemeContextType {
     theme: Theme;
@@ -17,7 +17,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const useTheme = () => useContext<ThemeContextType>(ThemeContext);
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>(defaultTheme);
+    const [theme, setTheme] = useState<Theme>(() => {
+        const themeId = localStorage.getItem('themeId');
+        const defaultTheme =
+            COLORS.find((color) => color.ID === parseInt(themeId)) || COLORS[0];
+        return themeId ? defaultTheme : COLORS[0];
+    });
 
     const changeTheme = (newTheme: Theme) => {
         setTheme(newTheme);

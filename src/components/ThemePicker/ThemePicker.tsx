@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Popover, Grid, Paper } from '@mui/material';
-import defaultTheme from '../../constants/themes/default';
+import { Popover, Grid, Paper, Typography } from '@mui/material';
+
+import COLORS from '../../constants/themes/colors';
+import { Theme } from '../../constants/themes/themeTypes';
 import ThemePickerButton from './ThemePickerButton';
+import { useTheme } from '../../constants/themes/themeContext';
 
 interface ThemePickerProps {}
 
 const ThemePicker = (props: ThemePickerProps) => {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement>(null);
+    const { theme, changeTheme } = useTheme();
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -14,6 +18,12 @@ const ThemePicker = (props: ThemePickerProps) => {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleThemeChange = (theme: Theme) => {
+        changeTheme(theme);
+        localStorage.setItem('themeId', theme.ID.toString());
+        handleClose();
     };
 
     return (
@@ -29,31 +39,30 @@ const ThemePicker = (props: ThemePickerProps) => {
                 }}
                 onClose={handleClose}
             >
-                <Grid container spacing={2} style={{ padding: '8px' }}>
-                    <Grid item xs>
-                        <Paper
-                            sx={{ width: 30, height: 30, borderRadius: '50%' }}
-                            style={{
-                                background: `linear-gradient(90deg, ${defaultTheme.HEADER_BACKGROUND} 50%, ${defaultTheme.CONTENT_BACKGROUND} 50%)`,
-                            }}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <Paper
-                            sx={{ width: 30, height: 30, borderRadius: '50%' }}
-                            style={{
-                                background: `linear-gradient(90deg, ${defaultTheme.HEADER_BACKGROUND} 50%, ${defaultTheme.CONTENT_BACKGROUND} 50%)`,
-                            }}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <Paper
-                            sx={{ width: 30, height: 30, borderRadius: '50%' }}
-                            style={{
-                                background: `linear-gradient(90deg, ${defaultTheme.HEADER_BACKGROUND} 50%, ${defaultTheme.CONTENT_BACKGROUND} 50%)`,
-                            }}
-                        />
-                    </Grid>
+                <Grid
+                    container
+                    spacing={2}
+                    direction='column'
+                    style={{ padding: '8px' }}
+                >
+                    {COLORS.map((color) => (
+                        <Grid
+                            item
+                            key={color.ID}
+                            onClick={() => handleThemeChange(color)}
+                        >
+                            <Paper
+                                sx={{
+                                    width: 30,
+                                    height: 30,
+                                    borderRadius: '50%',
+                                }}
+                                style={{
+                                    background: `linear-gradient(90deg, ${color.HEADER_BACKGROUND} 50%, ${color.CONTENT_BACKGROUND} 50%)`,
+                                }}
+                            />
+                        </Grid>
+                    ))}
                 </Grid>
             </Popover>
         </>
