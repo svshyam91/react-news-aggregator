@@ -11,9 +11,9 @@ const Header = () => {
     const { theme } = useTheme();
 
     return (
-        <Grid container item>
+        <Grid container item mb={7}>
             <AppBar
-                position='static'
+                position='fixed'
                 sx={{
                     backgroundColor: theme.HEADER_BACKGROUND,
                     color: theme.HEADER_TEXT_COLOR,
