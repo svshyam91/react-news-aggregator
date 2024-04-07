@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 
 import { useTheme } from '../constants/themes/themeContext';
-import NewsCard from './NewsCard';
+import TopHeadlines from './NewsAPI/TopHeadlines';
 
 const Content = () => {
     const { theme } = useTheme();
@@ -11,12 +11,12 @@ const Content = () => {
             container
             item
             xs
-            sx={{ backgroundColor: theme.CONTENT_BACKGROUND }}
+            sx={{ backgroundColor: theme.CONTAINER_BACKGROUND }}
             direction='column'
             p='10px'
         >
             <Grid container item>
-                <NewsCard />
+                <TopHeadlines />
             </Grid>
         </Grid>
     );

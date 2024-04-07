@@ -6,7 +6,7 @@ import Content from './components/Content';
 
 function App() {
     return (
-        <Grid container direction='column' style={{ height: '100%' }}>
+        <Grid container direction='column'>
             <Header />
             <Content />
         </Grid>

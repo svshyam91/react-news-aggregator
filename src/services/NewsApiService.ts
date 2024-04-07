@@ -11,6 +11,8 @@ const NewsApiService = {
     },
 };
 
+export default NewsApiService;
+
 const COUNTRY_CODE = {
     INDIA: 'in',
 };
