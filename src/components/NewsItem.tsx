@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, Link } from '@mui/material';
 
 import { useTheme } from '../constants/themes/themeContext';
 import { TITLE_FONT_SIZE } from '../constants/fonts/fontSize';
@@ -10,6 +10,8 @@ interface NewsItemProps {
 
 const NewsItem = (props: NewsItemProps) => {
     const { theme } = useTheme();
+    console.log('Theme: ', theme);
+    console.log('Articles: ', props.article);
     return (
         <Grid
             container
@@ -21,7 +23,7 @@ const NewsItem = (props: NewsItemProps) => {
             pb='10px'
         >
             <Grid container item>
-                <Grid item px={0.5}>
+                <Grid item px={0.5} md={2}>
                     <img
                         src={props.article.urlToImage}
                         width='auto'
@@ -29,10 +31,16 @@ const NewsItem = (props: NewsItemProps) => {
                         style={{ borderRadius: '10px' }}
                     />
                 </Grid>
-                <Grid item xs px={0.5}>
-                    <Typography variant='inherit' fontSize={TITLE_FONT_SIZE}>
+                <Grid item xs px={0.5} md={10}>
+                    <Link
+                        variant='inherit'
+                        underline='hover'
+                        fontSize={TITLE_FONT_SIZE}
+                        href={props.article.url}
+                        style={{ color: theme.HEADER_BACKGROUND }}
+                    >
                         {props.article.title}
-                    </Typography>
+                    </Link>
                 </Grid>
             </Grid>
             {/* <Grid container item xs></Grid> */}
